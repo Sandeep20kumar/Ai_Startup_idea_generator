@@ -1,29 +1,21 @@
-# Welcome to your Lovable project
+# Ai_Startup_idea_generator
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+Generate tailored startup ideas and business plans from your industry, audience, budget, goals, and technology preferences, with a Python agent workflow for market-fit, feasibility, and risk analysis.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requirements: Node.js and npm.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
 
 ## Built with
 
 - TanStack Start
-- TypeScript
-- React
+- TypeScript and React
 - Tailwind CSS
+- Python standard-library agent backend
+
+See [README_AGENT_BACKEND.md](README_AGENT_BACKEND.md) for backend setup and usage.
