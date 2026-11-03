@@ -1,0 +1,292 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system for "AI Startup Idea Generator".
+ * Purple + blue gradients, glassmorphism surfaces, light & dark themes.
+ * All colours are semantic tokens — never hardcode colours in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.985 0.006 285);
+  --foreground: oklch(0.19 0.03 275);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.03 275);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.03 275);
+  --primary: oklch(0.55 0.22 292);
+  --primary-foreground: oklch(0.99 0.005 285);
+  --secondary: oklch(0.95 0.02 280);
+  --secondary-foreground: oklch(0.28 0.06 285);
+  --muted: oklch(0.955 0.012 285);
+  --muted-foreground: oklch(0.52 0.03 280);
+  --accent: oklch(0.6 0.19 255);
+  --accent-foreground: oklch(0.99 0.005 285);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0.005 285);
+  --success: oklch(0.62 0.16 160);
+  --success-foreground: oklch(0.99 0.005 285);
+  --warning: oklch(0.75 0.15 75);
+  --warning-foreground: oklch(0.22 0.04 60);
+  --border: oklch(0.9 0.015 285);
+  --input: oklch(0.9 0.015 285);
+  --ring: oklch(0.55 0.22 292);
+  --chart-1: oklch(0.55 0.22 292);
+  --chart-2: oklch(0.6 0.19 255);
+  --chart-3: oklch(0.62 0.16 160);
+  --chart-4: oklch(0.75 0.15 75);
+  --chart-5: oklch(0.6 0.2 20);
+  --sidebar: oklch(0.99 0.006 285);
+  --sidebar-foreground: oklch(0.25 0.03 280);
+  --sidebar-primary: oklch(0.55 0.22 292);
+  --sidebar-primary-foreground: oklch(0.99 0.005 285);
+  --sidebar-accent: oklch(0.95 0.02 285);
+  --sidebar-accent-foreground: oklch(0.28 0.06 285);
+  --sidebar-border: oklch(0.91 0.015 285);
+  --sidebar-ring: oklch(0.55 0.22 292);
+
+  /* Gradients & glass surfaces */
+  --gradient-brand: linear-gradient(
+    135deg,
+    oklch(0.58 0.23 295) 0%,
+    oklch(0.58 0.2 268) 50%,
+    oklch(0.63 0.18 242) 100%
+  );
+  --gradient-soft: linear-gradient(
+    135deg,
+    oklch(0.58 0.23 295 / 0.12) 0%,
+    oklch(0.63 0.18 242 / 0.12) 100%
+  );
+  --glass-bg: oklch(1 0 0 / 0.65);
+  --glass-border: oklch(1 0 0 / 0.6);
+  --glass-shadow: 0 18px 50px -20px oklch(0.35 0.12 285 / 0.35);
+  --glow: 0 0 0 1px oklch(0.55 0.22 292 / 0.18), 0 20px 45px -18px oklch(0.55 0.22 292 / 0.55);
+}
+
+.dark {
+  --background: oklch(0.16 0.025 280);
+  --foreground: oklch(0.97 0.006 285);
+  --card: oklch(0.21 0.03 280);
+  --card-foreground: oklch(0.97 0.006 285);
+  --popover: oklch(0.21 0.03 280);
+  --popover-foreground: oklch(0.97 0.006 285);
+  --primary: oklch(0.68 0.19 293);
+  --primary-foreground: oklch(0.17 0.03 285);
+  --secondary: oklch(0.27 0.04 282);
+  --secondary-foreground: oklch(0.96 0.006 285);
+  --muted: oklch(0.26 0.035 282);
+  --muted-foreground: oklch(0.72 0.03 282);
+  --accent: oklch(0.7 0.15 250);
+  --accent-foreground: oklch(0.17 0.03 285);
+  --destructive: oklch(0.68 0.19 22);
+  --destructive-foreground: oklch(0.15 0.02 285);
+  --success: oklch(0.72 0.15 162);
+  --success-foreground: oklch(0.15 0.02 285);
+  --warning: oklch(0.82 0.15 80);
+  --warning-foreground: oklch(0.2 0.04 60);
+  --border: oklch(1 0 0 / 0.12);
+  --input: oklch(1 0 0 / 0.16);
+  --ring: oklch(0.68 0.19 293);
+  --sidebar: oklch(0.19 0.028 281);
+  --sidebar-foreground: oklch(0.95 0.006 285);
+  --sidebar-primary: oklch(0.68 0.19 293);
+  --sidebar-primary-foreground: oklch(0.17 0.03 285);
+  --sidebar-accent: oklch(0.27 0.04 282);
+  --sidebar-accent-foreground: oklch(0.96 0.006 285);
+  --sidebar-border: oklch(1 0 0 / 0.1);
+  --sidebar-ring: oklch(0.68 0.19 293);
+
+  --gradient-brand: linear-gradient(
+    135deg,
+    oklch(0.66 0.21 297) 0%,
+    oklch(0.62 0.2 272) 50%,
+    oklch(0.68 0.16 240) 100%
+  );
+  --gradient-soft: linear-gradient(
+    135deg,
+    oklch(0.66 0.21 297 / 0.18) 0%,
+    oklch(0.68 0.16 240 / 0.16) 100%
+  );
+  --glass-bg: oklch(0.28 0.04 283 / 0.55);
+  --glass-border: oklch(1 0 0 / 0.12);
+  --glass-shadow: 0 20px 60px -22px oklch(0.05 0.02 285 / 0.9);
+  --glow: 0 0 0 1px oklch(0.68 0.19 293 / 0.3), 0 20px 45px -18px oklch(0.66 0.21 297 / 0.55);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ---------- Reusable design-system utilities ---------- */
+
+@utility glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(18px);
+  border-radius: var(--radius-2xl);
+}
+
+@utility gradient-brand {
+  background-image: var(--gradient-brand);
+}
+
+@utility gradient-soft {
+  background-image: var(--gradient-soft);
+}
+
+@utility gradient-text {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility glow-ring {
+  box-shadow: var(--glow);
+}
+
+/* Ambient page background blobs */
+@utility aurora {
+  position: relative;
+  isolation: isolate;
+}
+
+@utility aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.5;
+  background-image: var(--gradient-brand);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-float {
+  animation: float-slow 9s ease-in-out infinite;
+}
+
+@utility animate-rise {
+  animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility shimmer-bar {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-primary) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}

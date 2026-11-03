@@ -1,0 +1,15 @@
+{
+  "project": "AI Startup Idea Generator",
+  "utility_weights": {"preference_fit": 0.35, "market_demand": 0.25, "feasibility": 0.20, "competition_opportunity": 0.10, "budget_fit": 0.10},
+  "market_fallback": [
+    {"title": "Startup discovery", "summary": "Validate customer pain points through interviews before building an MVP."},
+    {"title": "Market validation", "summary": "Compare alternatives, pricing and adoption barriers in the target segment."},
+    {"title": "Lean MVP", "summary": "Start with a narrow feature set and measure retention and willingness to pay."}
+  ],
+  "rules": [
+    {"if": "budget is low", "then": "prefer low-cost startup MVPs"},
+    {"if": "target audience matches candidate", "then": "increase preference-fit score"},
+    {"if": "preferred technology is supported", "then": "increase technology-fit score"},
+    {"if": "market demand is high and competition is lower", "then": "increase utility score"}
+  ]
+}
